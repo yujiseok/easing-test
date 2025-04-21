@@ -4,6 +4,9 @@ import Square from "./Square";
 const page = () => {
   return (
     <>
+      <Lane easing="linear">
+        <Square easing="linear" duration={2000} />
+      </Lane>
       <Lane easing="ease-in">
         <Square easing="ease-in" duration={2000} />
       </Lane>
@@ -13,8 +16,8 @@ const page = () => {
       <Lane easing="ease-in-out">
         <Square easing="ease-in-out" duration={2000} />
       </Lane>
-      <Lane easing="linear">
-        <Square easing="linear" duration={2000} />
+      <Lane easing="ease">
+        <Square easing="ease" duration={2000} />
       </Lane>
     </>
   );

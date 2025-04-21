@@ -3,7 +3,7 @@ const Lane = ({
   easing,
 }: {
   children: React.ReactNode;
-  easing: "ease-in" | "ease-out" | "ease-in-out" | "linear";
+  easing: "ease-in" | "ease-out" | "ease-in-out" | "linear" | "ease";
 }) => {
   return (
     <div className="w-full">

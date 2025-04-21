@@ -6,7 +6,7 @@ const Square = ({
   easing,
   duration = 300,
 }: {
-  easing: "ease-in" | "ease-out" | "ease-in-out" | "linear";
+  easing: "ease-in" | "ease-out" | "ease-in-out" | "linear" | "ease";
   duration?: number;
 }) => {
   const squareRef = useRef<HTMLDivElement>(null);
