@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 1. `linear`
 
-## Getting Started
+- 특징: 시간에 따라 일정한 속도로 진행. 가속•감속 없이 균일하게 움직임.
+- 사용처:
+  - 프로그래스 바 또는 타이머 같이 일정한 속도가 중요한 UI.
+  - 컨트롤러의 피드백 애니메이션.
+  - 무언가 영원히 지속되는 애니메이션.
+- 장점: 예측 가능하고 일관된 움직임.
+- 주의: 너무 기계적일 수 있어 사람이 느끼기에 "자연스러움"이 덜함.
 
-First, run the development server:
+## 2. `ease-in`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 특징: 느리게 시작해서 끝으로 갈수록 빨라짐(가속).
+- 장점: 부드러운 시작이 강조되어 과도한 튕김 방지.
+- 주의:
+  - 끝 부분이 급속도로 가속되어 어색해 보일 수 있음.
+  - 느리게 시작하여 인터페이스가 느리고 생동감을 떨어트릴 수 있음.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 3. `ease-out`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 특징: 시작이 빠르고, 끝으로 갈수록 느려짐(감속). `ease-in` 반대
+- 사용처:
+  - 버튼 클릭 또는 모달처럼, 시작은 빠르게 표현하고 부드럽게 마무리할 때.
+  - 들어오고 나가는 애니메이션 (enter/exit).
+- 장점: 자연스러운 마무리가 강조되어 눈에 편안함.
+- 주의: 초반이 너무 급해 보이면 사용자에게 튀는 인상을 줄 수 있음.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 4. `ease-in-out`
 
-## Learn More
+- 특징: 느리게 시작하여 속도를 올리고 끝으로 갈수록 느려짐.
+- 사용처:
+  - 일반적인 페이지 전환, 탭 전환 애니메이션.
+  - 요소가 화면에 존재할 경우.
+  - 자연스럽고 전체적으로 균형 잡힌 움직임을 원할 때.
+- 장점: 가장 "인간적인"느낌으로, 과도한 튕김 없이 매끄러운 흐름 제공.
+- 주의: 모든 상황에 좋지만, 속도 조절이 맞지 않으면 밋밋해 보일 수 있음.
 
-To learn more about Next.js, take a look at the following resources:
+## 5. `ease`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 특징: `ease-in-out`과 비슷하지만, 더 빠르게 시작해 더 느리게 끝남.
+- 사용처:
+  - 일반적인 상태 변화(버튼 hover)
+  - CSS 기본값
+- 장점: 특별한 추가 없이 자연스러운 애니메이션. 이렇다할 느낌이 없을 때 쓰면 좋음.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| 이름        | 특징                                                | 사용처                                                             | 장점                                 | 주의                                                    |
+| ----------- | --------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------ | ------------------------------------------------------- |
+| linear      | 시간에 따라 일정한 속도로 진행. 가속·감속 없음      | 프로그래스 바, 타이머, 컨트롤러 피드백, 영원히 지속되는 애니메이션 | 예측 가능, 일관된 움직임             | 너무 기계적, 자연스러움이 덜함                          |
+| ease-in     | 느리게 시작해 끝으로 갈수록 빨라짐(가속)            | -                                                                  | 부드러운 시작, 과도한 튕김 방지      | 끝이 급속 가속, 시작이 느려 인터페이스가 느려질 수 있음 |
+| ease-out    | 시작이 빠르고 끝으로 갈수록 느려짐(감속)            | 버튼 클릭, 모달, enter/exit 애니메이션                             | 자연스러운 마무리, 눈에 편안함       | 초반이 너무 급해 보일 수 있음                           |
+| ease-in-out | 느리게 시작→가속→끝에서 감속                        | 페이지/탭 전환, 화면 내 요소, 균형 잡힌 움직임                     | 인간적인 느낌, 매끄러운 흐름         | 속도 조절이 맞지 않으면 밋밋해 보일 수 있음             |
+| ease        | ease-in-out과 비슷, 더 빠르게 시작해 더 느리게 끝남 | 일반 상태 변화(버튼 hover), CSS 기본값                             | 자연스러운 애니메이션, 무난하게 사용 | 특별한 느낌이 필요 없을 때 적합                         |
